@@ -1,0 +1,110 @@
+<FirstScreen>:
+
+            
+    BoxLayout: 
+    
+        orientation: 'vertical'
+        padding: 5
+        spacing: 2
+        id: main
+        background_color: (0,0,0,1)
+        #background_color: (1,1,1,1)
+        canvas.before:
+            Color:
+                rgba: self.background_color
+            Rectangle:
+                size: self.pos
+                pos: self.pos
+    
+    
+        Label:
+            id: label_to_update
+            text: 'Choose your numbers:'
+            font_size: 25
+            size_hint_y: .3
+
+            
+        BoxLayout:
+            id: user_numbers
+            orientation: 'horizontal'
+                
+    
+            
+        BoxLayout:
+            id: slider_1
+            
+            Label:
+                text: 'Set your age:'
+                font_size: 22
+            
+            Slider:
+                id: slider_age
+                min: 18
+                max: 100
+                step: 1
+                orientation: 'horizontal'
+        
+            Label:
+                text: str(slider_age.value)
+                font_size: 25
+            
+        BoxLayout:
+            id: slider_2
+            
+            Label:
+                text: 'How many years\nwill you play, until\n you will win:'
+                font_size: 22
+            
+            Slider:
+                id: slider_duration
+                min: 1
+                max: 100
+                step: 1
+                orientation: 'horizontal'
+        
+            Label:
+                text: str(slider_duration.value)
+                font_size: 25
+            
+            
+        Button:
+            id: start_button
+            font_size: 28
+            text: 'Start your adventure with Lotto!!!'
+            on_release: root.check_your_result()
+            background_normal: 'ring.png'
+            background_down: 'ring.png'
+            
+        
+    
+<MyPopup>:
+    size_hint: .95, .95
+    auto_dismiss: False
+    title: 'Sumary!!!'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            id: uwaga
+            font_size: 23
+            text: "Popraw kwote"
+
+        Button:
+            text: 'Play one more time!'
+            size_hint_y: .12
+            font_size: 23
+            on_press: root.dismiss()
+    
+
+<SpinnerOptions@SpinnerOptions>:
+    background_normal: 'ball.png'
+    background_down: 'ball.png'
+    font_size: 20
+    bold: True
+    height: 100 
+    width: 100
+    color: (0,0,0,1)
+    
+    
+    
+    
+    
